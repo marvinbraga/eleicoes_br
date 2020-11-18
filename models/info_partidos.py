@@ -13,11 +13,11 @@ class InfoPartidos:
     _INFO_PARTIDOS = [
         {'NOME': 'Republicanos', 'SIGLA': 'REPUB', 'CODIGO_PARTIDO': 10, 'IDEOLOGIA': 'Liberal',
          'POSICIONAMENTO': 'Centro/Direita'},
-        {'NOME': 'Progressistas', 'SIGLA': 'PP', 'CODIGO_PARTIDO': 11, 'IDEOLOGIA': 'Bandidal',
+        {'NOME': 'Progressistas', 'SIGLA': 'PP', 'CODIGO_PARTIDO': 11, 'IDEOLOGIA': 'Liberal',
          'POSICIONAMENTO': 'Centro/Esquerda'},
         {'NOME': 'Partido Democrático Trabalhista', 'SIGLA': 'PDT', 'CODIGO_PARTIDO': 12, 'IDEOLOGIA': 'Socialista',
          'POSICIONAMENTO': 'Ultra/Esquerda'},
-        {'NOME': 'Partido dos Trabalhadores', 'SIGLA': 'PTralha', 'CODIGO_PARTIDO': 13, 'IDEOLOGIA': 'Socialista',
+        {'NOME': 'Partido dos Trabalhadores', 'SIGLA': 'PT', 'CODIGO_PARTIDO': 13, 'IDEOLOGIA': 'Socialista',
          'POSICIONAMENTO': 'Ultra/Esquerda'},
         {'NOME': 'Partido Trabalhista Brasileiro', 'SIGLA': 'PTB', 'CODIGO_PARTIDO': 14, 'IDEOLOGIA': 'Conservador',
          'POSICIONAMENTO': 'Centro/Direita'},
