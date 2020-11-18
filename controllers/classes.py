@@ -59,9 +59,18 @@ class ControllerMergeTotaisPartidos(AbstractController):
     def __init__(self, totais, partidos):
         self._partidos = partidos
         # Filtra apenas dados importantes.
-        self._totais = totais[['CODIGO_PARTIDO', 'TOTAL_VOTOS']].groupby(
-            'CODIGO_PARTIDO').count().sort_values('TOTAL_VOTOS', ascending=False)
+        self._totais = self._update_totais(totais)
         self._data = None
+
+    @staticmethod
+    def _update_totais(totais):
+        """
+        Método para atualizar o valor da propriedade _totais com agrupamentos.
+        :param totais: DataFrame.
+        :return: DataFrame.
+        """
+        return totais[['CODIGO_PARTIDO', 'TOTAL_VOTOS']].groupby(
+            'CODIGO_PARTIDO').count().sort_values('TOTAL_VOTOS', ascending=False)
 
     def execute(self):
         """
