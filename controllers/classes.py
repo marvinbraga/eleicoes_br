@@ -28,7 +28,7 @@ class ControllerCities(AbstractController):
         for i in range(len(cidades.axes[0])):
             cidade = cidades.axes[0][i]
             el = self._input_data[(self._input_data['NOME_MUNICIPIO'] == cidade)]
-            eleito = el.sort_values('QTDE_VOTOS', ascending=False).iloc[0]
+            eleito = el.sort_values(['NUM_TURNO', 'QTDE_VOTOS'], ascending=[False, False]).iloc[0]
             dt_eleito = {
                 'ANO_ELEICAO': eleito['ANO_ELEICAO'],
                 'CIDADE': eleito["NOME_MUNICIPIO"],
@@ -59,8 +59,8 @@ class ControllerMergeTotaisPartidos(AbstractController):
     def __init__(self, totais, partidos):
         self._partidos = partidos
         # Filtra apenas dados importantes.
-        self._totais = totais[['CODIGO_PARTIDO', 'TOTAL_VOTOS']].groupby('CODIGO_PARTIDO').count().sort_values(
-            'TOTAL_VOTOS', ascending=False)
+        self._totais = totais[['CODIGO_PARTIDO', 'TOTAL_VOTOS']].groupby(
+            'CODIGO_PARTIDO').count().sort_values('TOTAL_VOTOS', ascending=False)
         self._data = None
 
     def execute(self):
