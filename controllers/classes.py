@@ -108,7 +108,8 @@ class ControllerMergeTotaisPartidos(AbstractController):
 class ControllerEleicaoMunicipal(AbstractController):
     """ Controlador para eleições municipais brasileiras. """
 
-    def __init__(self, ano_eleicao=None, municipio=None, estado=None):
+    def __init__(self, ano_eleicao=None, municipio=None, estado=None, cargo='Prefeito'):
+        self._cargo = cargo
         self._estado = estado
         self._municipio = municipio
         self._ano_eleicao = ano_eleicao
@@ -190,6 +191,7 @@ class ControllerEleicaoMunicipal(AbstractController):
             kwargs['state'] = self._estado
         if self._municipio:
             kwargs['city'] = self._municipio
+        if self._cargo:
+            kwargs['position'] = self._cargo
 
-        return self._adaptee.get_votes(position="Prefeito", regional_aggregation="Municipio",
-                                       columns_list=self._colunas, **kwargs)
+        return self._adaptee.get_votes(regional_aggregation="Municipio", columns_list=self._colunas, **kwargs)
