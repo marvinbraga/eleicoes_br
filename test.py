@@ -125,6 +125,6 @@ class FilesManager:
         return self._files.__iter__()
 
 
-files = FilesManager(caminho)
-for file in files:
-    print(file)
+arquivos = FilesManager(caminho)
+for arq in arquivos:
+    print(arq)
