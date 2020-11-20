@@ -1,0 +1,18 @@
+version: "3.4"
+
+services:
+  db:
+    container_name: eleicoes-db
+    image: postgres:12
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRE_DB=eleicoes_bd
+      - POSTGRES_USER=scott
+      - POSTGRES_PASSWORD=tiger
+    volumes:
+      - postgres-eleicoes-db-data:/data
+
+volumes:
+  postgres-eleicoes-db-data:

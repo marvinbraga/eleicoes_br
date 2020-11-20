@@ -10,6 +10,8 @@ ipython = "*"
 electionsbr = "*"
 numpy = "==1.19.2"
 pylint = "*"
+sqlalchemy = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.8"
