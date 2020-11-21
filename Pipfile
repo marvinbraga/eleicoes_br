@@ -12,6 +12,7 @@ numpy = "==1.19.2"
 pylint = "*"
 sqlalchemy = "*"
 psycopg2 = "*"
+sqlalchemy-utils = "*"
 
 [requires]
 python_version = "3.8"

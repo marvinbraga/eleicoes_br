@@ -34,5 +34,18 @@ class FilesManager:
                 self._files.append(DataFile(os.path.normpath(os.path.join(p, file))))
         return self
 
+    def get_by_uf(self, uf):
+        """
+        Método para recuperar arquivo procurando por UF.
+        :param uf: String.
+        :return: DataFile.
+        """
+        result = None
+        for file in self._files:
+            if uf == file.state:
+                result = file
+                break
+        return result
+
     def __iter__(self):
         return self._files.__iter__()

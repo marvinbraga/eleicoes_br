@@ -17,3 +17,4 @@ if __name__ == '__main__':
     # Imprime os dados agrupados e totalizados por partido.
     print('TOTAL DE CIDADES:', partidos['CIDADES'].sum())
     print(partidos.sort_values('CIDADES', ascending=False))
+    print(partidos.dtypes)
