@@ -18,3 +18,4 @@ if __name__ == '__main__':
     print('TOTAL DE CIDADES:', partidos['CIDADES'].sum())
     print(partidos.sort_values('CIDADES', ascending=False))
     print(partidos.dtypes)
+    partidos.to_csv('E:\\2016.csv', encoding="ISO-8859-1", sep=';', quotechar='"')

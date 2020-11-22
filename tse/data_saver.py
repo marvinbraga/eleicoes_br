@@ -17,6 +17,16 @@ class DataSaver:
         self._engine = create_engine(database_url, echo=True)
         self.create_database()
 
+    @property
+    def files(self):
+        """ Retorna o valor da propriedade _files (FilesManager). """
+        return self._files
+
+    @property
+    def engine(self):
+        """ Retorna o valor da propriedade _engine (sqlalchemy). """
+        return self._engine
+
     def create_database(self):
         """ Método para criar o database na base de dados. """
         if not database_exists(self._engine.url):
