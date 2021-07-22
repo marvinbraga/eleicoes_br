@@ -9,6 +9,7 @@ from threading import Thread
 
 class LoadDataFiles:
     """ Classe para fazer a carga dos dados dos arquivos de cada Estado. """
+
     def __init__(self, files):
         self._files = files
 
@@ -42,11 +43,12 @@ class ConsolidadorVotosPrefeito:
         self._columns = columns
         self._files = files
         if self._columns is None:
-            self._columns = ['CD_ELEICAO', 'SG_UF', 'CD_MUNICIPIO', 'NM_MUNICIPIO', 'NR_ZONA', 'NR_SECAO',
-                             'NR_LOCAL_VOTACAO', 'CD_CARGO_PERGUNTA', 'DS_CARGO_PERGUNTA', 'NR_PARTIDO',
-                             'SG_PARTIDO', 'DT_BU_RECEBIDO', 'CD_TIPO_URNA', 'CD_TIPO_VOTAVEL', 'NR_VOTAVEL'
-                                                                                                'QT_VOTOS',
-                             'NR_URNA_EFETIVADA']
+            self._columns = [
+                'CD_ELEICAO', 'SG_UF', 'CD_MUNICIPIO', 'NM_MUNICIPIO', 'NR_ZONA', 'NR_SECAO',
+                'NR_LOCAL_VOTACAO', 'CD_CARGO_PERGUNTA', 'DS_CARGO_PERGUNTA', 'NR_PARTIDO',
+                'SG_PARTIDO', 'DT_BU_RECEBIDO', 'CD_TIPO_URNA', 'CD_TIPO_VOTAVEL', 'NR_VOTAVEL',
+                'QT_VOTOS', 'NR_URNA_EFETIVADA'
+            ]
         self._load_data()
 
     def _load_data(self):

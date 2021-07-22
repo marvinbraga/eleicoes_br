@@ -5,7 +5,7 @@ Teste eleições
 from controllers.classes import ControllerEleicaoMunicipal
 
 if __name__ == '__main__':
-    controller = ControllerEleicaoMunicipal(ano_eleicao=2016)
+    controller = ControllerEleicaoMunicipal(ano_eleicao=2020)
     eleitos = controller.eleitos()
     partidos = controller.agrupados()
 

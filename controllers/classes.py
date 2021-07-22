@@ -4,9 +4,9 @@ Todos os direitos registrados.
 Marcus Vinicius Braga, 2020.
 Classes de controladores para eleições no Brasil.
 """
-from controllers.abstracts import AbstractController
 import pandas as pd
 
+from controllers.abstracts import AbstractController
 from core.adaptees import AdapteeElection
 from models.info_partidos import InfoPartidos
 
@@ -20,7 +20,9 @@ class ControllerCities(AbstractController):
 
     def execute(self):
         """
-        Método para executar regra de negócio do controlador.
+        Método para carregar os dados dos candidatos, filtrados por cidade e classificados por
+        turno e quantidade de votos recebidos. Cria data frame classificando valores por
+        UF e por total de votos (asc).
         :return: Self.
         """
         cidades = self._input_data.groupby('NOME_MUNICIPIO').count()
@@ -114,8 +116,10 @@ class ControllerEleicaoMunicipal(AbstractController):
         self._municipio = municipio
         self._ano_eleicao = ano_eleicao
         self._adaptee = AdapteeElection()
-        self._colunas = ['ANO_ELEICAO', 'NOME_MUNICIPIO', 'UF', 'NUM_TURNO', 'DESCRICAO_CARGO', 'NUMERO_CANDIDATO',
-                         'QTDE_VOTOS']
+        self._colunas = [
+            'ANO_ELEICAO', 'NOME_MUNICIPIO', 'UF', 'NUM_TURNO', 'DESCRICAO_CARGO', 'NUMERO_CANDIDATO',
+            'QTDE_VOTOS'
+        ]
         self._colunas_categorias = ['ANO_ELEICAO', 'NOME_MUNICIPIO', 'UF', 'NUM_TURNO']
         self._data = None
         self._eleitos = None
@@ -136,6 +140,8 @@ class ControllerEleicaoMunicipal(AbstractController):
         :return: Self.
         """
         self._data = self.clear()._convert_data(data=self._get_votes())
+        if self._data.empty:
+            raise Exception('ERRO: Sem dados para apresentar.')
         return self
 
     @property
