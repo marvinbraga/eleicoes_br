@@ -16,6 +16,7 @@ psycopg2 = "*"
 sqlalchemy-utils = "*"
 matplotlib = "*"
 seaborn = "*"
+jupyter = "*"
 
 [requires]
 python_version = "3.8"
