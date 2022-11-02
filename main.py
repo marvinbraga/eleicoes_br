@@ -5,7 +5,8 @@ Teste eleições
 from controllers.classes import ControllerEleicaoMunicipal
 
 if __name__ == '__main__':
-    controller = ControllerEleicaoMunicipal(ano_eleicao=2018, cargo='Presidente')
+    ano_eleicao = 2022
+    controller = ControllerEleicaoMunicipal(ano_eleicao=ano_eleicao, cargo='Presidente')
     eleitos = controller.eleitos()
     partidos = controller.agrupados()
 
@@ -18,4 +19,4 @@ if __name__ == '__main__':
     print('TOTAL DE CIDADES:', partidos['CIDADES'].sum())
     print(partidos.sort_values('CIDADES', ascending=False))
     print(partidos.dtypes)
-    partidos.to_csv('data/2016.csv', encoding="ISO-8859-1", sep=';', quotechar='"')
+    partidos.to_csv(f'data/{ano_eleicao}.csv', encoding="ISO-8859-1", sep=';', quotechar='"')
